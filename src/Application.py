@@ -12,7 +12,7 @@ import tensorflow as tf
 from tensorflow import keras
 
 import sys
-sys.path.insert(0, join(abspath(dirname(__file__)), "../tools"))
+sys.path.insert(0, join(abspath(dirname(__file__)), "..\tools"))
 
 from detection import get_diagram_position
 from relative_to_absolute_path import get_absolute_path
@@ -25,40 +25,40 @@ from diagrams_to_squares import get_squares
 def load_pieces() -> dict:
     return {
         4: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/bB.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\bB.png", __file__)).resize((70, 70))
         ),
         6: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/bK.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\bK.png", __file__)).resize((70, 70))
         ),
         3: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/bN.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\bN.png", __file__)).resize((70, 70))
         ),
         1: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/bP.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\bP.png", __file__)).resize((70, 70))
         ),
         5: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/bQ.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\bQ.png", __file__)).resize((70, 70))
         ),
         2: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/bR.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\bR.png", __file__)).resize((70, 70))
         ),
         10: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/wB.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\wB.png", __file__)).resize((70, 70))
         ),
         12: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/wK.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\wK.png", __file__)).resize((70, 70))
         ),
         9: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/wN.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\wN.png", __file__)).resize((70, 70))
         ),
         7: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/wP.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\wP.png", __file__)).resize((70, 70))
         ),
         11: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/wQ.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\wQ.png", __file__)).resize((70, 70))
         ),
         8: ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/pieces/wR.png", __file__)).resize((70, 70))
+            Image.open(get_absolute_path("..\resources\pieces\wR.png", __file__)).resize((70, 70))
         ),
     }
 
@@ -71,10 +71,10 @@ class ProcessImage:
     def __init__(self, a_queue):
         self.a_queue = a_queue
         self.black_model = keras.models.load_model(
-            get_absolute_path("../resources/black_model.h5", __file__)
+            get_absolute_path("..\resources\black_model.h5", __file__)
         )
         self.white_model = keras.models.load_model(
-            get_absolute_path("../resources/white_model.h5", __file__)
+            get_absolute_path("..\resources\white_model.h5", __file__)
         )
 
     def process(self, np_image):
@@ -118,7 +118,7 @@ class ChessBoard(tk.Frame):
         self.canvas.place(x=20, y=20)
 
         self.board_image = ImageTk.PhotoImage(
-            Image.open(get_absolute_path("../resources/board.jpg", __file__)).resize((560, 560))
+            Image.open(get_absolute_path("..\resources\board.jpg", __file__)).resize((560, 560))
         )
         self.canvas.create_image(0, 0, image=self.board_image, anchor=tk.NW)
 
